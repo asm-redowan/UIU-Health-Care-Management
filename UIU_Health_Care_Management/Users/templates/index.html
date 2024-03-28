@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{%  load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'initial/index.css' %}"> {% endcomment %}
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="bg">
+        <div class="header">
+            <div class="logo">UIU Logo</div>
+            <span>UIU Health Care Management</span> 
+        </div>
+    
+        <div class="button-group">
+            <a class="hospital">Nearest hospital</a>
+            <a href='{% url "login" %}' class="login">Login</a>
+        </div>
+
+    </div>
+
+
+    
+</body>
+</html>

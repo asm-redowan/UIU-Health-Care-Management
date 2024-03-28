@@ -1,0 +1,107 @@
+html, body{
+
+    height: 100%;
+    /* width: 100%; */
+    margin: 0;
+
+}
+
+
+.bg{
+    background-image: url("/media/bg.jpg");
+    display: flex;
+    flex-direction: column;
+    
+    /* Full height */
+    height: 100%; 
+    width: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.logo{
+    /* width: 25%; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.uiuhcm{
+    /* width: 70%; */
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.logo img{
+    margin-right: 0;
+    /* margin-left: 35%; */
+    align-items: end;
+    width: 150px;
+}
+
+
+
+.uiuhcm span{
+    /* margin-left: ; */
+    font-size: 60px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    align-items: right;
+}
+
+.form-login{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.elements{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* width: 100px; */
+}
+
+.elements input{
+    margin-bottom: 10px;
+    width: 550px;
+    height: 45px;
+    padding: 5px 5px 5px 15px;
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+}
+
+.elements button{
+    margin-bottom: 10px;
+    width: 200px;
+    height: 45px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+}
+
+
+
