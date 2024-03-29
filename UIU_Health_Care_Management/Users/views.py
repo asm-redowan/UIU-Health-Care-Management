@@ -27,7 +27,10 @@ def login_page(request):
             request.session['username']=user.username
             request.session['usertype']=user.usertype
             print(user.usertype)
-            return redirect('info')
+            if user.usertype=="Doctor":
+                return redirect('doctor-home')
+            else:
+                return redirect('patient-home')
         else:
             print("no")
 

@@ -1,0 +1,17 @@
+.body-content{
+
+    display: flex;
+    flex-direction: row;
+    margin-left: 150px;
+    margin-right: 70px;
+    margin-top: 70px;
+}
+
+.left-side, .right-side {
+    flex: 1;
+}
+
+.left-side img{
+    border-radius: 100px;
+    width:  24%;
+}

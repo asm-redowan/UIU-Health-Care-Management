@@ -15,6 +15,10 @@ class Person(models.Model):
         DS = 'DS', 'Data Science and Analytics'
         AD = 'AD', 'Admin'
 
+    class Gender(models.TextChoices):
+        MALE = 'Male', 'Male'
+        FEMALE = 'Female', 'Female'
+
     username = models.CharField(max_length=100, unique=True, primary_key=True)
     password = models.CharField(max_length=50)
     first_name = models.CharField(max_length=30)
@@ -24,6 +28,7 @@ class Person(models.Model):
     dob = models.DateField(null=True, blank=True)
     department = models.CharField(max_length=4, choices=Dpartments.choices)
     usertype  = models.CharField(max_length=7, choices=UserType.choices)
+    gender = models.CharField(max_length=7, choices=Gender.choices)
     
     
     def __str__(self):

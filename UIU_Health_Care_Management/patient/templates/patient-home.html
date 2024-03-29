@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'patient.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+    <div class="body-content">
+        {% comment %} {{person.userprofileimage}} {% endcomment %}
+        <div class="left-side">
+            <img src="/media/{{person.userprofileimage}}" alt="">
+            <p>Name: {{ person.first_name|add:' '|add:person.last_name }}</p>
+            <p>DOB: {{ person.dob }}</p>
+            <p>Gender: {{ person.gender }}</p>
+            <p>Email: {{ person.email }}</p>
+        </div>
+
+        <div class="right-side">
+
+        </div>
+
+    </div>
+
+{% endblock %}
