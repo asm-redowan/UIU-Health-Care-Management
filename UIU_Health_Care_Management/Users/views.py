@@ -26,7 +26,7 @@ def login_page(request):
         if user is not None:
             request.session['username']=user.username
             request.session['usertype']=user.usertype
-            print(user.usertype)
+            # print(user.usertype)
             if user.usertype=="Doctor":
                 return redirect('doctor-home')
             else:
@@ -43,7 +43,7 @@ def logout(request):
     return redirect('login_page')
 
 
-def info(request):
-    if request.session.get('username') is None:
-        return redirect('login_page')
-    return render(request, 'info.html')
+# def info(request):
+#     if request.session.get('username') is None:
+#         return redirect('login_page')
+#     return render(request, 'info.html')

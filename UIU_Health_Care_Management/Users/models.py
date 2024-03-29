@@ -46,15 +46,16 @@ class Appointment(models.Model):
 
     
     patient = models.ForeignKey(Person, on_delete=models.CASCADE, primary_key=True, related_name='patient_appointments')
-    doctor = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='doctor_appointments')
+    # doctor = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='doctor_appointments')
     appointment_date = models.DateTimeField(default=timezone.now)
-    status = models.BooleanField(default="N/A")  # True if the appointment is confirmed
+    status = models.BooleanField(default=False)  # True if the appointment is confirmed
     slot = models.CharField(max_length=5, choices=TIME_SLOT)
+    problem = models.CharField(max_length=250, null=True)
 
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=['patient', 'doctor'], name='unique_appointment')
-        ]
+    # class Meta:
+    #     constraints = [
+    #         models.UniqueConstraint(fields=['patient', 'doctor'], name='unique_appointment')
+    #     ]
 
 
 

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'take-appointment.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="content-form">
+        <h2>Book Your Appointment</h2>
+        <form  method="POST" >
+            {% csrf_token %}
+            
+            <label for="price">Price: 50৳</label>
+            <br>
+            <label for="payment">Payment Method:</label>
+            <select name="payment" id="payment">
+                <option value="online">Online</option>
+                <option value="offline">Offline</option>
+            </select>
+            <br>
+            <label for="time">Time Slot:</label>
+
+            <select name="time" id="time">
+                <option value="slot1">9AM -11AM</option>
+                <option value="slot2">11AM-1PM</option>
+                <option value="slot3">1PM-5PM</option>
+            </select>
+            <br>
+            <label for="problem">Describe Your Problem:</label>
+            <textarea name="problem" id="problem" rows="5"></textarea>
+            <br>
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

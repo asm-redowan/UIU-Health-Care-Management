@@ -1,0 +1,46 @@
+
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.content-form {
+    flex: 2;  /* Adjust width if needed */
+    padding: 20px;
+    background-color: #f2f2f2;  /* Adjust background color */
+}
+
+h2 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 20px;  /* Customize font size */
+    color: #333;  /* Customize heading color */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#price, span {
+    font-weight: bold;
+}
+
+select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #fc3b00;  /* Replace button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5
+}

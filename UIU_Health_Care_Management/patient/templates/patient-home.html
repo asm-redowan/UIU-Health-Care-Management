@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block css %}
     {% load static %}
+    {% load django_template_maths %}
     <link rel="stylesheet" href="{% static 'patient.css' %}">
 {% endblock %}
 
@@ -12,16 +13,50 @@
 
     <div class="body-content">
         {% comment %} {{person.userprofileimage}} {% endcomment %}
+        
         <div class="left-side">
             <img src="/media/{{person.userprofileimage}}" alt="">
-            <p>Name: {{ person.first_name|add:' '|add:person.last_name }}</p>
+            <p>Name: {{ person.first_name}} {{person.last_name }}</p>
             <p>DOB: {{ person.dob }}</p>
             <p>Gender: {{ person.gender }}</p>
             <p>Email: {{ person.email }}</p>
+
+            {% if not appointment.status %}
+                <a href="{% url 'take-appoinment' %}">Take Appointment</a>
+            {% endif %}
+
+            
+            
         </div>
 
         <div class="right-side">
+            <div class="appointment-status">
 
+                <label for="active">Serial: <span>{{rank}}</span></label><br>
+                <label for="">Est Time: 
+                    <span>
+                        {% if rank is not None %}
+                            {{ rank|mul:15|sub:15 }} min
+                        {% else %}
+                            {{ rank }}
+                        {% endif %}
+                    </span>
+                </label><br>
+                <label for="">
+                    Problem : 
+                    <span>
+                        {% if appointment is not None %}
+                            {{ appointment.problem }}
+                        {% else %}
+                            None
+                        {% endif %}
+                    </span>
+                    
+                </label>
+            </div>
+            <div class="appointment-slot">
+
+            </div>
         </div>
 
     </div>
