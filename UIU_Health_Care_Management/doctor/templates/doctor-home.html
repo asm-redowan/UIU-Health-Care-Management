@@ -1,4 +1,57 @@
 {% extends "base.html" %}
+
+{% block css %}
+    {% load static %}
+    {% load django_template_maths %}
+    <link rel="stylesheet" href="{% static 'doctor.css' %}">
+    
+{% endblock %}
+
 {% block content %}
+
+<div class="body-content">
+    {% comment %} {{person.userprofileimage}} {% endcomment %}
+    
+    <div class="left-side">
+        <img src="/media/{{person.userprofileimage}}" alt="">
+        <p>Name: {{ person.first_name}} {{person.last_name }}</p>
+        <p>DOB: {{ person.dob }}</p>
+        <p>Gender: {{ person.gender }}</p>
+        <p>Email: {{ person.email }}</p>
+        
+    </div>
+
+    <div class="right-side">
+
+        <div class="search">
+            <form method="POST">
+                <input type="text" placeholder="search by username">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="appoint-list">
+
+            <table class="table">
+                <tr>
+                    <th scope="col">Serial No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Problem</th>
+                    <th scope="col">Preview</th>
+                </tr>
+                {% for app in appointments %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{app.patient.first_name}} {{app.patient.last_name}}</td>
+                    <td>{{app.problem}}</td>
+                    <td></td>
+                </tr>
+                {% endfor %} 
+            </table>
+            
+        </div>
+        
+    </div>
+
+</div>
 
 {% endblock content %}

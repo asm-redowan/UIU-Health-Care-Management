@@ -3,6 +3,7 @@ from datetime import datetime
 from Users.models import *
 from django.db.models import F, Window
 from django.db.models.functions import RowNumber
+from django.utils import timezone
 # Create your views here.
 
 def patient_home(request):
@@ -43,10 +44,12 @@ def take_appointment(request):
                 return redirect('patient-home')
             else:
                 appointment = Appointment.objects.get(patient=username)
-                appointment.date_time = dt_string
+                appointment.appointment_date = timezone.now()
                 appointment.problem = problem
                 appointment.status = True
                 appointment.save()
+                # print(appointment.date_time)
+                # print(appointment.date_time)
                 return redirect('patient-home')
             
         except Appointment.DoesNotExist:
