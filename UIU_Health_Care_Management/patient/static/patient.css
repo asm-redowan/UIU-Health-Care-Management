@@ -49,13 +49,21 @@
 
 }
 
+
+.left-side a:hover{
+    background-color: rgb(155, 45, 45);
+}
+
 .appointment-status{
     display: flex;
     flex-direction: column;
     width: 390px;
     border: 1px solid black;
     padding: 50px 50px 50px 50px;
-    background-color: rgb(225, 193, 255);
+    /* background-color: rgb(225, 193, 255); */
+    background-color: rgb(66, 6, 122);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 
 .appointment-status label{

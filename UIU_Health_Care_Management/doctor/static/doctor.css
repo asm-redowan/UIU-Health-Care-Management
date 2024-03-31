@@ -49,8 +49,33 @@ td{
 }
 
 .search{
+    
     display: flex;
     justify-content: center;    
     margin-bottom: 20px;
 }
+
+/* .search button .search-img{
+    width: 25px; 
+    background-color: white;
+    padding: 5px 5px 5px 5px;
+    
+}
+
+.search form{
+    position: relative;
+}
+
+.search button{
+    position: absolute;
+    border: none;
+    background-color: white;
+    
+}
+
+.search input{
+    position: absolute;
+    height: 70%;
+    top: 0;
+} */
 

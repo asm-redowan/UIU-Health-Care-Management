@@ -33,8 +33,12 @@
 
             
             <a href="">Nearest Hospital</a>
-            <a href="">FAQ</a>
-            <a href="{% url 'logout' %}">logout</a>
+            <a class="fag" href="{% url 'faq' %}">FAQ</a>
+
+            {% if request.session.username %}
+                <a href="{% url 'logout' %}">logout</a>
+            {% endif %}
+            
         </div>
     </div>
     {% block content %}

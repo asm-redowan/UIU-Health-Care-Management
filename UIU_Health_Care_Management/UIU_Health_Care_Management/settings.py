@@ -47,6 +47,8 @@ EXTERNAL_APPS = [
     'Users',
     'patient',
     'doctor',
+    'faq',
+    
 ]
 
 

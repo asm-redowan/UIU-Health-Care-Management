@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+
+{% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'faq.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'faq-modify.css' %}"> {% endcomment %}
+
+{% endblock %}
+
+{% block content %}
+
+{% comment %} {{faq}} {% endcomment %}
+
+<div class="faq-body">
+    {% for q in faq %}
+
+        <div class="accordion-main">
+            <div class="accordion" id="accordion{{ forloop.counter }}">
+                <div class="question">{{q.question}} #{{ forloop.counter }}</div>
+                <div class="plus-icon">+</div>
+            </div>
+            <div class="panel" id="panel{{ forloop.counter }}">
+                <p>{{ q.answer }}</p>
+            </div>
+        </div>
+        
+    {% endfor %}
+
+    <script>
+        {% for q in faq %}
+            document.getElementById('accordion{{ forloop.counter }}').addEventListener("click", function() {
+                var panel = document.getElementById('panel{{ forloop.counter }}');
+                this.classList.toggle("active");
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        {% endfor %}
+    </script>
+</div>
+
+
+
+{% endblock %}

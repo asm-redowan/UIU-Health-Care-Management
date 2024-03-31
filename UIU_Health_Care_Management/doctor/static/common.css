@@ -48,5 +48,7 @@
     padding: 10px 10px 10px 10px;
 }
 
-
+faq:active {
+    background-color: rgb(220, 220, 209);
+  }
 
