@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block css %}
+    {% load static %}
+    {% load django_template_maths %}
+    <link rel="stylesheet" href="{% static "prescription.css" %}">
+
+    
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url "save" %}" method="POST">
+    {% csrf_token %}
+
+    <input type="hidden" name="doctor" value="{{doctor.username}}">
+    <input type="hidden" name="patient" value="{{patient.username}}">
+    <div class="form">
+        <div class="prescription-header">
+            Prescription
+        </div>
+    
+        <div class="prescription-body">
+            <div class="patientinfo">
+                <div class="div1">
+                    <label >Patient Name :</label>
+                    <input type="text" value="{{patient.first_name}} {{patient.last_name}}" disabled>
+                </div>
+                <div class="div1">
+                    <label >Patient age :</label>
+                    <input type="number" value="{{age}}" disabled>
+                </div>
+            </div>
+            <div class="patientinfo">
+                <div class="div1">
+                    <label >Patient Gender :</label>
+                    <input type="text" value="{{patient.gender}}" disabled>
+                </div>
+                <div class="div1">
+                    <label >Patient age :</label>
+                    <input type="text" value="{{patient.department}}" disabled>
+                </div>
+            </div>
+
+            <div class="email">
+                <label>Patient Gender:</label>
+                <input type="text" value="{{patient.email}}" disabled>
+            </div>
+
+            <div class="symptoms">
+                <label>Symptoms</label>
+                <textarea name="symptoms" id="" cols="30" rows="3"></textarea>
+            </div>
+
+            <div class="diagnosis">
+                <label>Diagnosis</label>
+                <textarea name="diagnosis" id="" cols="30" rows="3"></textarea>
+            </div>
+            <div class="diagnosis">
+                <label>Medicines</label>
+                <textarea name="medicine" id="" cols="30" rows="3" style="white-space: pre-wrap;"></textarea>
+                
+            </div>
+            <div class="diagnosis">
+                <label>Tests</label>
+                <textarea name="test" id="" cols="30" rows="3"></textarea>
+            </div>
+
+            
+
+            <input type="submit" value="submit">
+    
+        </div>
+    </div> 
+
+</form>
+
+{% endblock %}

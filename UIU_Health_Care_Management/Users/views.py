@@ -43,6 +43,10 @@ def logout(request):
     return redirect('login_page')
 
 
+def index(request):
+    return render(request, 'index.html')
+
+
 # def info(request):
 #     if request.session.get('username') is None:
 #         return redirect('login_page')

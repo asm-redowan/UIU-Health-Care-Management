@@ -1,4 +1,4 @@
-html, body{
+/* html, body{
 
     height: 100%;
     margin: 0;
@@ -9,10 +9,10 @@ html, body{
     background-image: url("/media/bg.jpg");
     display: flex;
     flex-direction: column;
-    /* Full height */
+ 
     height: 100%; 
 
-    /* Center and scale the image nicely */
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -51,4 +51,194 @@ html, body{
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 60px;
+}
+
+
+ */
+
+
+ html, body{
+
+    height: 100%;
+    /* width: 100%; */
+    margin: 0;
+
+}
+
+
+.bg{
+
+    /* position: relative; */
+
+    background-image: url("/media/bg.jpg");
+    display: flex;
+    flex-direction: column;
+    
+    /* Full height */
+    height: 100%; 
+    width: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.logo{
+    /* width: 25%; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.uiuhcm{
+    /* width: 70%; */
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.logo img{
+    margin-right: 0;
+    /* margin-left: 35%; */
+    align-items: end;
+    width: 150px;
+}
+
+
+
+.uiuhcm span{
+    /* margin-left: ; */
+    font-size: 60px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    align-items: right;
+}
+
+.form-login{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.elements{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* width: 100px; */
+}
+
+.elements input{
+    margin-bottom: 10px;
+    width: 550px;
+    height: 45px;
+    padding: 5px 5px 5px 15px;
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+}
+
+.elements button{
+    margin-bottom: 10px;
+    width: 200px;
+    height: 45px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    border: none;
+    background-color: rgb(255, 72, 0);
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    
+}
+
+.button-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 60px;
+
+    font-size: 40px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+ 
+.footer-img{
+
+    position: absolute; 
+    width: 600px;
+    bottom: 0; 
+    right: 0;
+    
+    
+} 
+
+
+a {
+    padding: 10px 20px; 
+    background: rgb(255, 72, 0);
+    color: #FFF;
+    text-decoration: none;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+/* style="position: absolute; width: 600px; bottom: 0; right: 0;" */
+
+.phone{
+    margin-top: 10px;
+    width: 50px;
+}
+
+.emargency{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin-top: 100px;
+    margin-left: 120px;
+
+}
+
+.div1{
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+}
+
+
+.font{
+    margin-left: 5px;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #FFF;
 }

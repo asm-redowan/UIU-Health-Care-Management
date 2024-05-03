@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block css %}
+
+{% load static %}
+    {% load django_template_maths %}
+    <link rel="stylesheet" href="{% static 'prescriptionlist.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="body-content">
+        {% comment %} {{person.userprofileimage}} {% endcomment %}
+
+        
+        
+        <div class="left-side">
+            <img src="/media/{{person.userprofileimage}}" alt="">
+            <p>Name: {{ person.first_name}} {{person.last_name }}</p>
+            <p>DOB: {{ person.dob }}</p>
+            <p>Gender: {{ person.gender }}</p>
+            <p>Email: {{ person.email }}</p>
+            {% comment %} <a href="{% url 'addprescription' patient.username %}"> eq </a> {% endcomment %}
+            
+        </div> 
+
+        <div class="right-side">
+
+            <div class="search">
+                <h2>Prescription List</h2>
+            </div>
+            <div class="appoint-list">
+
+                <table class="table">
+                    <tr>
+                        <th scope="col">Serial No.</th>
+                        <th scope="col">Doctor Name</th>
+                        {% comment %} <th scope="col">Problem</th> {% endcomment %}
+                        <th scope="col">Preview</th>
+                    </tr>
+                    {% for prescription in prescriptions %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{prescription.doctor.first_name}} {{prescription.doctor.last_name}}</td>
+                        {% comment %} <td>{{prescription.id}}</td> {% endcomment %}
+                        <td><a href="{% url 'viewprescription' prescription.id %}">view</a></td>
+                    </tr>
+                    {% endfor %} 
+                </table>
+                
+            </div>
+            
+        </div>
+
+    </div>
+
+
+{% endblock %}

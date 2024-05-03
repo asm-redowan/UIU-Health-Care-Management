@@ -28,11 +28,11 @@
 
             {% if request.session.usertype == 'Patient' %}
                 <a href="{% url 'patient-home' %}">Home</a>
-                <a href="">Prescrption</a>
+                <a href="{% url 'prescriptionlist' %}">Prescrption</a>
             {% endif %}
 
             
-            <a href="">Nearest Hospital</a>
+            <a href="{% url "nearesthospital" %}">Nearest Hospital</a>
             <a class="fag" href="{% url 'faq' %}">FAQ</a>
 
             {% if request.session.username %}

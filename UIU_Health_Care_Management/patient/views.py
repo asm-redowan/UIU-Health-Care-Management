@@ -4,6 +4,8 @@ from Users.models import *
 from django.db.models import F, Window
 from django.db.models.functions import RowNumber
 from django.utils import timezone
+from doctor.models import Prescription
+from Users.models import Person
 # Create your views here.
 
 def patient_home(request):
@@ -56,3 +58,17 @@ def take_appointment(request):
             pass
         
     return render(request,'take-appointment.html')
+
+
+def prescriptionlist(request):
+    person = Person.objects.get(username=request.session.get('username'))
+    
+    prescription = Prescription.objects.filter(patient=person).order_by('id')
+
+    print(person.username)
+    if person:
+        return render(request, 'prescriptionlist.html', context={"person": person,"prescriptions":prescription})
+        # return HttpResponse(patient)
+    
+    else:
+        return redirect("patient-home")

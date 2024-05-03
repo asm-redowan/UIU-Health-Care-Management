@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block css %}
+    {% load static %}
+    {% load django_template_maths %}
+    <link rel="stylesheet" href="{% static "viewprescription.css" %}">
+
+    
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    {% comment %} <div class="header">
+        <div class="doctor">
+            <p>Dr. Doctor Name</p>
+        </div>
+    
+    </div> {% endcomment %}
+    <div class="prescription">
+        <h2>Patient Information</h2>
+        <p>Patient Name :{{prescription.patient.first_name}} {{prescription.patient.last_name}} </p>
+        <p>Age: Date</p>  
+        <h2>Diagnosis</h2>
+        {% comment %} <textarea name="diagnosis" rows="4" cols="50" placeholder="Diagnosis" disabled></textarea> {% endcomment %}
+        <div class="diagnosis">
+            {% for di in  diagnosis_list %}
+                {{di}} <br>
+            {% endfor %}
+            {% comment %} {{prescription.diagnosis}} {% endcomment %}
+        </div>
+        <h2>Symptoms</h2>
+        {% comment %} <textarea name="medication" rows="4" cols="50" placeholder="Medication"></textarea> {% endcomment %}
+        <div class="symptoms">
+            {% for p in  symptoms_list %}
+                {{p}} <br>
+            {% endfor %}
+            
+        </div>
+        <h2>Medication</h2>
+        <div class="medicine">
+        {% for d in medicine_list %}
+            {{d}} <br>
+        {% endfor %}
+        </div>
+
+        {% if test_list %}
+
+        <h2>Tests</h2>
+        <div class="test">
+            {% for t in test_list %}
+            {{t}} <br>
+            {% endfor %}
+        </div>
+        
+        {% endif %}
+        
+    </div>
+</div>
+
+{% endblock %}
