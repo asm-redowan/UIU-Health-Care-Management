@@ -28,7 +28,7 @@
             <form action="{% url "search" %}" method="POST">
                 {% csrf_token %}
                 <input type="text" placeholder="search by username" name="username">
-                <button type="submit">search</button>
+                <button type="submit" class="search-button">search</button>
             </form>
         </div>
         <div class="appoint-list">
