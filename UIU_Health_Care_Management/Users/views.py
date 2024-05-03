@@ -40,7 +40,7 @@ def login_page(request):
 def logout(request):
     request.session.flush()
     # Redirect to a success page or homepage
-    return redirect('login_page')
+    return redirect('index')
 
 
 def index(request):

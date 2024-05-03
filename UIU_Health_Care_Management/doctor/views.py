@@ -7,6 +7,8 @@ import datetime
 from django.urls import reverse
 # Create your views here.
 def doctor_home(request):
+    if not request.session.get('username'):
+        return redirect('index')
     appointments = Appointment.objects.filter(status=True).order_by('appointment_date')
     # appointments = Appointment.objects.all()
 
@@ -17,6 +19,13 @@ def doctor_home(request):
 
 
 def patientprofile(request, username):
+    if not request.session.get('username'):
+        return redirect('index')
+    
+    appointment = Appointment.objects.get(patient=username)
+    appointment.status = False
+    appointment.save()
+
     patient = Person.objects.filter(username=username)
     pat= patient.first()
     prescription = Prescription.objects.filter(patient=pat).order_by('id')
@@ -30,6 +39,8 @@ def patientprofile(request, username):
         return redirect("doctor-home")
     
 def addprescription(request, username):
+    if not request.session.get('username'):
+        return redirect('index')
     patient = Person.objects.filter(username=username);
     patient = patient.first()
 
@@ -48,6 +59,8 @@ def addprescription(request, username):
     return render(request, 'add_prescription.html', context={"patient": patient, 'age':age, "doctor": doctor})
 
 def viewprescription(request, prescription_id):
+    if not request.session.get('username'):
+        return redirect('index')
     prescription = Prescription.objects.get(id=prescription_id)
     print(prescription.patient.first_name)
     symptoms_list = prescription.symptoms.split('\r\n')
@@ -59,6 +72,9 @@ def viewprescription(request, prescription_id):
     # return HttpResponse(prescription_id)
 
 def save(request):
+    if not request.session.get('username'):
+        return redirect('index')
+
     if request.method == 'POST':
         doctor = request.POST['doctor']  # Retrieve the submitted data
         # doctor = request.POST.copy().get('doctor')  # Retrieve the submitted data
@@ -84,5 +100,23 @@ def save(request):
 
 def nearesthospital(request):
     return render(request,'nearesthospital.html')
+
+
+def search(request):
+    if not request.session.get('username'):
+        return redirect('index')
+    if request.method == 'POST':
+        username = request.POST['username']
+        print(username)
+
+        person = Person.objects.filter(username=username).first()
+
+    if person:
+        redirect_url = reverse('patientprofile', kwargs={'username': person.username})
+        return redirect(redirect_url)
+    else:
+        appointments = Appointment.objects.filter(status=True).order_by('appointment_date')
+        person = Person.objects.get(username=request.session.get('username'))
+        return render(request, 'doctor-home.html',context={"person":person, "appointments": appointments})
     
     

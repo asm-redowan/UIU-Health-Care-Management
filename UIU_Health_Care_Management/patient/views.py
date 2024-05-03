@@ -9,6 +9,8 @@ from Users.models import Person
 # Create your views here.
 
 def patient_home(request):
+    if not request.session.get('username'):
+        return redirect('index')
     # print(request.session.get('username'))
     appointments = Appointment.objects.filter(status=True).order_by('appointment_date')
     c = 0
@@ -27,6 +29,8 @@ def patient_home(request):
 
 
 def take_appointment(request):
+    if not request.session.get('username'):
+        return redirect('index')
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
@@ -61,6 +65,9 @@ def take_appointment(request):
 
 
 def prescriptionlist(request):
+    if not request.session.get('username'):
+        return redirect('index')
+
     person = Person.objects.get(username=request.session.get('username'))
     
     prescription = Prescription.objects.filter(patient=person).order_by('id')

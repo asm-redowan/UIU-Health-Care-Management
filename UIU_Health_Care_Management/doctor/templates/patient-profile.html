@@ -21,7 +21,10 @@
             <p>DOB: {{ patient.dob }}</p>
             <p>Gender: {{ patient.gender }}</p>
             <p>Email: {{ patient.email }}</p>
-            <a href="{% url 'addprescription' patient.username %}"> eq </a>
+            <a href="{% url 'addprescription' patient.username %}" style="width: 130px;padding: 10px 15px 15px 15px; height: 20px; background: rgb(255, 72, 0); color: #FFF; text-decoration: none; border-radius: 5px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+            "> Add Prescription </a>
+            
             
         </div> 
 
@@ -44,7 +47,8 @@
                         <th scope="row">{{forloop.counter}}</th>
                         <td>{{prescription.doctor.first_name}} {{prescription.doctor.last_name}}</td>
                         {% comment %} <td>{{prescription.id}}</td> {% endcomment %}
-                        <td><a href="{% url 'viewprescription' prescription.id %}">view</a></td>
+                        <td><a href="{% url 'viewprescription' prescription.id %}" style="width: 90px;padding: 10px 10px 10px 10px; height: 20px; background: rgb(255, 72, 0); color: #FFF; text-decoration: none; border-radius: 5px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+                            ">view</a></td>
                     </tr>
                     {% endfor %} 
                 </table>
