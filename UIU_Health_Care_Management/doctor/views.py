@@ -67,8 +67,13 @@ def viewprescription(request, prescription_id):
     medicine_list = prescription.drug.split('\r\n')
     test_list = prescription.test.split('\r\n')
     diagnosis_list = prescription.diagnosis.split('\r\n')
+
+    birthdate_str = prescription.patient.dob.strftime('%Y-%m-%d') # Example birthdate in the format YYYY-MM-DD
+    birthdate = datetime.datetime.strptime(birthdate_str, '%Y-%m-%d').date()
+    today = datetime.date.today()
+    age = relativedelta(today, birthdate).years
     # print(symptoms_list)
-    return render(request, 'viewprescription.html', context={"prescription": prescription, 'symptoms_list': symptoms_list, 'medicine_list': medicine_list,'test_list':test_list,'diagnosis_list':diagnosis_list})
+    return render(request, 'viewprescription.html', context={"prescription": prescription, 'symptoms_list': symptoms_list, 'medicine_list': medicine_list,'test_list':test_list,'diagnosis_list':diagnosis_list, "age": age})
     # return HttpResponse(prescription_id)
 
 def save(request):
